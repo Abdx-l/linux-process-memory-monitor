@@ -1,0 +1,13 @@
+[Unit]
+Description=Process resource threshold monitor
+After=multi-user.target
+[Service]
+ExecStart=/usr/local/bin/procmon --daemon /var/log/procmon/events.log
+DynamicUser=yes
+LogsDirectory=procmon
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+Restart=on-failure
+[Install]
+WantedBy=multi-user.target
